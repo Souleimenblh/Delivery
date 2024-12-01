@@ -1,0 +1,77 @@
+<!-- assets/leafletmap.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Map</title>
+    <!-- Include Leaflet CSS and JavaScript -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+
+<!-- Create a div with a specific id for the map -->
+<div id="map" style="height: 100vh;"></div>
+
+<script type="text/javascript">
+    // Declare the map variable globally
+    var map;
+
+    // Define onMarkerClick function globally
+    function onMarkerClick(restaurantName) {
+        // Call the Android function when a marker is clicked
+        if (window.Android && typeof window.Android.onMarkerClick === 'function') {
+            window.Android.onMarkerClick(restaurantName);
+        } else {
+            console.error("Android interface or onMarkerClick function not available");
+        }
+    }
+
+    // Wait for the Android interface to be ready
+    document.addEventListener("DOMContentLoaded", function() {
+        map = L.map('map'); // Initialize the map variable here
+        var latitude = Android.getLatitude();
+        var longitude = Android.getLongitude();
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        map.setView([latitude, longitude], 13);
+
+        // Add a marker for the user's location
+        L.marker([latitude, longitude]).addTo(map)
+            .bindPopup('My Location')
+            .openPopup();
+    });
+
+    // Define setRestaurants function globally
+    function setRestaurants(json) {
+        var restaurants = JSON.parse(json);
+        restaurants.forEach(function (restaurant) {
+            var customIcon = L.icon({
+                iconUrl: restaurant.icon, // Assuming the restaurant object has an 'icon' property
+                iconSize: [50, 50],
+                iconAnchor: [25, 50],
+            });
+
+            var marker = L.marker([restaurant.latitude, restaurant.longitude], { icon: customIcon }).addTo(map)
+                .bindPopup(restaurant.name); // Customize the popup content as needed
+
+            // Add a custom click event for each marker
+            marker.on('click', function (e) {
+                // Call the globally defined onMarkerClick function
+                onMarkerClick(restaurant.name);
+            });
+        });
+    }
+
+    // Call setRestaurants if Android interface is available
+    if (window.Android && typeof window.Android.getRestaurants === 'function') {
+        window.Android.getRestaurants();
+    }
+</script>
+
+</body>
+</html>

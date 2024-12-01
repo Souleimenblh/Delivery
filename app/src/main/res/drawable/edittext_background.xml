@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- When EditText is focused -->
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF"/> <!-- White background color -->
+            <stroke android:width="2dp" android:color="#000000"/> <!-- Black border color -->
+            <corners android:radius="16dp"/> <!-- Rounded corners with 16dp radius -->
+        </shape>
+    </item>
+    <!-- Default EditText background -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#E0E0E0"/> <!-- Light gray background color for unfocused state -->
+            <corners android:radius="16dp"/> <!-- Rounded corners with 4dp radius -->
+        </shape>
+    </item>
+</selector>

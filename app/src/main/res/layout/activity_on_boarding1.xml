@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+    <ImageView
+        android:id="@+id/illustration"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:src="@drawable/rangeoffood"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"/>
+    <LinearLayout
+        android:id="@+id/progressDots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/illustration"
+        android:layout_marginTop="20dp">
+
+        <View
+            android:id="@+id/dot1"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@drawable/circleprog"
+            android:layout_marginEnd="4dp"/>
+
+        <View
+            android:id="@+id/dot2"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@drawable/circle"
+            android:layout_marginEnd="4dp"/>
+
+        <View
+            android:id="@+id/dot3"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@drawable/circle"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressDots"
+        android:layout_marginTop="20dp"
+        android:text="Wide range of Food Categories and more"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <!-- TextView for the description -->
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_marginTop="10dp"
+        android:text="Browse through our extensive list of restaurants and dishes, and when you're ready to order, simply add your desired items to your cart and checkout. It's that easy!"
+        android:textSize="20sp"/>
+
+    <LinearLayout
+        android:id="@+id/panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/description"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Skip"
+            android:padding="16dp"
+            android:drawablePadding="8dp"
+            android:textAppearance="?attr/textAppearanceButton"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/primaryTextColor"
+            android:background="?attr/selectableItemBackground"
+            app:drawableEndCompat="@drawable/arrowright" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:drawableEnd="@drawable/arrowrightwhite"
+            android:drawablePadding="8dp"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activities.AddAddressActivity">
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Address"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/webView"/>
+
+    <EditText
+        android:id="@+id/addressInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Address"
+        android:inputType="textPostalAddress"
+        android:padding="10dp"
+        app:drawableStartCompat="@drawable/loca"
+        android:drawablePadding="10dp"
+        android:background="@drawable/edittext_background"
+        app:layout_constraintTop_toBottomOf="@id/Address"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+    <LinearLayout
+        android:id="@+id/Address2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/addressInput"
+        android:layout_margin="16dp">
+        <LinearLayout
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/Rue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rue"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/webView"/>
+
+            <EditText
+                android:id="@+id/rueInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Rue"
+                android:inputType="textPostalAddress"
+                android:padding="10dp"
+                android:background="@drawable/edittext_background"
+                app:layout_constraintTop_toBottomOf="@id/Address"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/codePostal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Code Postal"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/webView"/>
+
+            <EditText
+                android:id="@+id/codePostalInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Code Postal"
+                android:padding="10dp"
+                android:background="@drawable/edittext_background"
+                app:layout_constraintTop_toBottomOf="@id/Address"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/labelAs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Label As"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/Address2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"/>
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/labelAs"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"/>
+        <RadioButton
+            android:id="@+id/work"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Work"/>
+    </RadioGroup>
+    <Button
+        android:id="@+id/saveLocation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Save Location"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

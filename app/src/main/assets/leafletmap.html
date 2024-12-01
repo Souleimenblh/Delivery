@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Map</title>
+    <!-- Include Leaflet CSS and JavaScript -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+
+<!-- Create a div with a specific id for the map -->
+<div id="map" style="height: 100vh;"></div>
+
+<script type="text/javascript">
+    // Initialize the map
+    var map = L.map('map').setView([51.505, -0.09], 13);
+
+    // Load a tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+            maxZoom: 18,
+        }).addTo(map);
+
+    // Add a draggable marker
+    var marker = L.marker([51.505, -0.09], {draggable: true}).addTo(map);
+
+    // Update the location when the marker is dragged
+    marker.on('dragend', function(event) {
+        var position = marker.getLatLng();
+        Android.onLocationSelected(position.lat, position.lng);
+    });
+
+    // Function to move the marker
+    function moveMarker(lat, lng) {
+        marker.setLatLng([lat, lng]);
+        map.setView([lat, lng], 13);
+    }
+</script>
+
+</body>
+</html>

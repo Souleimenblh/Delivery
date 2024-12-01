@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activities.ProfileActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/menu">
+
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/profile" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="Vishal Khadok"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/profileImage"
+        app:layout_constraintTop_toTopOf="@+id/profileImage" />
+
+    <TextView
+        android:id="@+id/tagline_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="I love fast food"
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/edittext_background"
+        android:clickable="true"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical|start"
+        android:padding="10dp"
+        android:text="Personal Info"
+        android:textAppearance="?attr/textAppearanceButton"
+        android:textColor="@color/primaryTextColor"
+        app:drawableEndCompat="@drawable/arrowright"
+        app:drawableStartCompat="@drawable/info"
+        app:layout_constraintTop_toBottomOf="@+id/profileImage"
+        />
+
+
+        <TextView
+            android:id="@+id/addresses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edittext_background"
+            android:clickable="true"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical|start"
+            android:padding="10dp"
+            android:text="Addresses"
+            android:textAppearance="?attr/textAppearanceButton"
+            android:textColor="@color/primaryTextColor"
+            app:drawableEndCompat="@drawable/arrowright"
+            app:drawableStartCompat="@drawable/addresses"
+            app:layout_constraintTop_toBottomOf="@+id/info"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="84dp"
+            android:background="@drawable/edittext_background"
+            android:clickable="true"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical|start"
+            android:padding="10dp"
+            android:text="Log Out"
+            android:textAppearance="?attr/textAppearanceButton"
+            android:textColor="@color/primaryTextColor"
+            app:drawableEndCompat="@drawable/arrowright"
+            app:drawableStartCompat="@drawable/logout"
+            app:layout_constraintTop_toBottomOf="@+id/addresses"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <TextView
+            android:id="@+id/orders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="88dp"
+            android:background="@drawable/edittext_background"
+            android:clickable="true"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical|start"
+            android:padding="10dp"
+            android:text="Orders"
+            android:textAppearance="?attr/textAppearanceButton"
+            android:textColor="@color/primaryTextColor"
+            app:drawableEndCompat="@drawable/arrowright"
+            app:drawableStartCompat="@drawable/addresses"
+            app:layout_constraintBottom_toTopOf="@+id/logout"
+            app:layout_constraintTop_toBottomOf="@+id/info"
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_editor_absoluteX="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
+</androidx.constraintlayout.widget.ConstraintLayout>

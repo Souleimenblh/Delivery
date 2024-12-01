@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/backgroudIMG"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/rounded_background"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/profileIMG"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="2dp"
+            android:src="@drawable/profile" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="horizontal">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+               <TextView
+                   android:id="@+id/restaurantName"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="name"
+                   android:textSize="25sp" />
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+
+                   <ImageView
+                       android:id="@+id/imageView3"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginEnd="14dp"
+
+                       app:srcCompat="@drawable/loca" />
+
+                   <TextView
+                       android:id="@+id/address"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Bramlea and Sandalwood"
+                       />
+               </LinearLayout>
+
+           </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/rounded_background"
+        android:layout_marginLeft="20dp"
+        >
+
+        <ImageView
+            android:id="@+id/ratingsIMG"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="23dp"
+            android:src="@drawable/rangeoffood" />
+
+        <ImageView
+            android:id="@+id/famousCategoryIMG"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/rangeoffood" />
+
+        <ImageView
+            android:id="@+id/deliversIMG"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/rangeoffood" />
+
+        <TextView
+            android:id="@+id/ratingsTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:text="Ratings: "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/DeliversTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delivers in "
+            android:textSize="20sp"
+            android:layout_below="@+id/ratingsTV"
+            android:layout_alignStart="@+id/ratingsTV"
+            android:layout_marginTop="12dp"
+            />
+
+        <TextView
+            android:id="@+id/FamousCategoryTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Burgers"
+            android:textSize="20sp"
+            android:layout_below="@+id/DeliversTV"
+            android:layout_alignStart="@+id/DeliversTV"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="12dp" />
+
+        <ImageView
+            android:id="@+id/moreInformationIMG"
+            android:layout_width="51dp"
+            android:layout_height="41dp"
+            android:layout_below="@+id/ratingsTV"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/more_information"
+            android:src="@drawable/arrowright" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/categories"
+        tools:ignore="MissingConstraints"
+        tools:listitem="@layout/category" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listProducts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/listCategories"
+        tools:ignore="MissingConstraints"
+        tools:listitem="@layout/product_item" />
+
+</LinearLayout>

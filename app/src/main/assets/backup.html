@@ -1,0 +1,38 @@
+<!-- assets/leafletmap.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Map</title>
+    <!-- Include Leaflet CSS and JavaScript -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+
+<!-- Create a div with a specific id for the map -->
+<div id="map" style="height: 100vh;"></div>
+
+<script type="text/javascript">
+    // Wait for the Android interface to be ready
+    document.addEventListener("DOMContentLoaded", function() {
+        var map = L.map('map');
+        var latitude = Android.getLatitude();
+        var longitude = Android.getLongitude();
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        map.setView([latitude, longitude], 13);
+
+        // Add a marker for the user's location
+        L.marker([latitude, longitude]).addTo(map)
+            .bindPopup('Your Location')
+            .openPopup();
+    });
+</script>
+
+</body>
+</html>
